@@ -1,0 +1,5 @@
+name: NetworkSync
+author: Meehoweq
+description: "BungeeCord proxy-to-proxy linker, used to distribute the load between multiple instances."
+version: 1.0
+main: pl.meehoweq.networksync.NetworkSyncPlugin
