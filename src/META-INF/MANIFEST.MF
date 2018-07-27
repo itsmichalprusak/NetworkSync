@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Class-Path: jedis-2.9.0.jar waterfall.jar
+Main-Class: 
+

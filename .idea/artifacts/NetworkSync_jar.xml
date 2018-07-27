@@ -1,0 +1,12 @@
+<component name="ArtifactManager">
+  <artifact name="NetworkSync:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/NetworkSync_jar</output-path>
+    <root id="root">
+      <element id="archive" name="NetworkSync.jar">
+        <element id="module-output" name="NetworkSync" />
+      </element>
+      <element id="library" level="project" name="jedis-2.9.0" />
+      <element id="library" level="project" name="waterfall" />
+    </root>
+  </artifact>
+</component>
