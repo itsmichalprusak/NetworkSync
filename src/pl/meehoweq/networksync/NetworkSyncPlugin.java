@@ -32,6 +32,8 @@ public class NetworkSyncPlugin extends Plugin {
 
     @Override
     public void onEnable() {
+        ProxyServer.getInstance().getLogger().info("NetworkSync booting up on this node...");
+
         this.configManager = new ConfigManager(this);
         this.redisManager = new RedisManager(this);
 
@@ -48,10 +50,13 @@ public class NetworkSyncPlugin extends Plugin {
         this.cCmdCommand = new NsCmdCommand(this);
 
         instance = this;
+        ProxyServer.getInstance().getLogger().info("Done.");
     }
 
     @Override
     public void onDisable() {
+        ProxyServer.getInstance().getLogger().info("NetworkSync is shutting down. The whole cache will be cleaned prior to it.");
+
         for(ProxiedPlayer player : ProxyServer.getInstance().getPlayers()) {
             redisManager.removePlayer(player);
         }
