@@ -2,7 +2,6 @@ package pl.meehoweq.networksync.commands;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
-import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.CommandSender;
 import net.md_5.bungee.api.ProxyServer;
 import net.md_5.bungee.api.plugin.Command;
@@ -12,10 +11,10 @@ import redis.clients.jedis.exceptions.JedisConnectionException;
 
 public class NsCmdCommand extends Command {
 
-    NetworkSyncPlugin plugin;
+    private NetworkSyncPlugin plugin;
 
     public NsCmdCommand(NetworkSyncPlugin plugin) {
-        super("nscommand", "networksync.command");
+        super("nscommand", "networksync.command", "nscmd", "globalcmd", "globalcommand");
         this.plugin = plugin;
         ProxyServer.getInstance().getPluginManager().registerCommand(plugin, this);
     }
@@ -29,13 +28,13 @@ public class NsCmdCommand extends Command {
             return;
         }
 
-        StringBuilder cmd = new StringBuilder(args[0]);
+        StringBuilder command = new StringBuilder(args[0]);
         for (int i = 1; i < args.length; i++) {
-            cmd.append(" ").append(args[i]);
+            command.append(" ").append(args[i]);
         }
 
         final JsonObject object = new JsonObject();
-        object.addProperty("command", cmd.toString());
+        object.addProperty("command", command.toString());
         object.addProperty("instance", plugin.redisManager.getInstance());
 
         ProxyServer.getInstance().getScheduler().runAsync(plugin, () -> {
@@ -47,7 +46,7 @@ public class NsCmdCommand extends Command {
                 jedis.publish("NSExecuteCommand", gson.toJson(object));
 
                 sender.sendMessage("§aKomenda §7/" + object.get("command").getAsString() + " §azostala wywolana na wszystkich instancjach proxy.");
-            } catch (JedisConnectionException ex) {
+            } catch (JedisConnectionException exception) {
                 if(jedis != null) {
                     plugin.redisManager.getPool().returnBrokenResource(jedis);
                 }
@@ -56,7 +55,7 @@ public class NsCmdCommand extends Command {
             }
         });
 
-        ProxyServer.getInstance().getPluginManager().dispatchCommand(ProxyServer.getInstance().getConsole(), cmd.toString());
+        ProxyServer.getInstance().getPluginManager().dispatchCommand(ProxyServer.getInstance().getConsole(), command.toString());
     }
 
 }

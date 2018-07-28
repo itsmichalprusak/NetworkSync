@@ -9,10 +9,10 @@ import redis.clients.jedis.exceptions.JedisConnectionException;
 
 public class NsDebugPlayerCommand extends Command {
 
-    NetworkSyncPlugin plugin;
+    private NetworkSyncPlugin plugin;
 
     public NsDebugPlayerCommand(NetworkSyncPlugin plugin) {
-        super("nsdebugplayer", "networksync.debug");
+        super("nsdebugplayer", "networksync.debug", "nsdebug", "debugplayer");
         this.plugin = plugin;
         ProxyServer.getInstance().getPluginManager().registerCommand(plugin, this);
     }
@@ -36,7 +36,7 @@ public class NsDebugPlayerCommand extends Command {
                 jedis.hdel("ns_player_nicks", nick.toLowerCase());
 
                 sender.sendMessage("§aPomyslnie wyczyszczono powiazania sieciowe dla §7" + nick + "§a. Gracz powinien moc sie juz polaczyc.");
-            } catch (JedisConnectionException ex) {
+            } catch (JedisConnectionException exception) {
                 if(jedis != null) {
                     plugin.redisManager.getPool().returnBrokenResource(jedis);
                 }

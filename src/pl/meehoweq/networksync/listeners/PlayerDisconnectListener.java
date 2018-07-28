@@ -9,7 +9,7 @@ import pl.meehoweq.networksync.NetworkSyncPlugin;
 
 public class PlayerDisconnectListener implements Listener {
 
-    NetworkSyncPlugin plugin;
+    private NetworkSyncPlugin plugin;
 
     public PlayerDisconnectListener(NetworkSyncPlugin plugin) {
         this.plugin = plugin;

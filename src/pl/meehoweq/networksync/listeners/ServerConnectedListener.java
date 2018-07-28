@@ -10,7 +10,7 @@ import pl.meehoweq.networksync.NetworkSyncPlugin;
 
 public class ServerConnectedListener implements Listener {
 
-    NetworkSyncPlugin plugin;
+    private NetworkSyncPlugin plugin;
 
     public ServerConnectedListener(NetworkSyncPlugin plugin) {
         this.plugin = plugin;

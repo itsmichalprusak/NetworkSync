@@ -15,7 +15,7 @@ import java.util.UUID;
 
 public class RedisListener extends JedisPubSub {
 
-    NetworkSyncPlugin plugin;
+    private NetworkSyncPlugin plugin;
 
     public RedisListener(NetworkSyncPlugin plugin) {
         this.plugin = plugin;
@@ -32,7 +32,7 @@ public class RedisListener extends JedisPubSub {
                 "NSExecuteCommand");
     }
 
-    Gson gson = new Gson();
+    private Gson gson = new Gson();
 
     public void onMessage(String channel, String json) {
         JsonObject object = gson.fromJson(json, JsonObject.class);

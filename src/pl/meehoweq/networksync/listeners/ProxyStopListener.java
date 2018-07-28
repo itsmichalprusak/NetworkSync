@@ -6,7 +6,7 @@ import pl.meehoweq.networksync.NetworkSyncPlugin;
 
 public class ProxyStopListener implements Listener {
 
-    NetworkSyncPlugin plugin;
+    private NetworkSyncPlugin plugin;
 
     public ProxyStopListener(NetworkSyncPlugin plugin) {
         this.plugin = plugin;

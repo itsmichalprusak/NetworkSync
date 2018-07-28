@@ -20,7 +20,6 @@ public class ConfigManager {
 
     public String redisHost;
     public String redisPass;
-    public int redisBase;
 
     private void load() {
         saveDefaultConfig();
@@ -32,7 +31,6 @@ public class ConfigManager {
 
         redisHost = config.getString("config.redis.host");
         redisPass = config.getString("config.redis.pass");
-        redisBase = config.getInt("config.redis.base");
     }
 
     private void saveDefaultConfig() {

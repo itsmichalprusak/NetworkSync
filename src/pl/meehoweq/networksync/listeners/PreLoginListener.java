@@ -8,7 +8,7 @@ import pl.meehoweq.networksync.NetworkSyncPlugin;
 
 public class PreLoginListener implements Listener {
 
-    NetworkSyncPlugin plugin;
+    private NetworkSyncPlugin plugin;
 
     public PreLoginListener(NetworkSyncPlugin plugin) {
         this.plugin = plugin;

@@ -9,7 +9,7 @@ import pl.meehoweq.networksync.NetworkSyncPlugin;
 
 public class PostLoginListener implements Listener {
 
-    NetworkSyncPlugin plugin;
+    private NetworkSyncPlugin plugin;
 
     public PostLoginListener(NetworkSyncPlugin plugin) {
         this.plugin = plugin;

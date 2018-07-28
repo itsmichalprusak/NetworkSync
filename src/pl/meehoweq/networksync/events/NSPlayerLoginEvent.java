@@ -1,6 +1,5 @@
 package pl.meehoweq.networksync.events;
 
-import net.md_5.bungee.api.config.ServerInfo;
 import net.md_5.bungee.api.plugin.Event;
 
 import java.util.UUID;

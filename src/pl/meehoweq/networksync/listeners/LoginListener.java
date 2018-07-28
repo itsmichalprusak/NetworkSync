@@ -11,7 +11,7 @@ import java.util.UUID;
 
 public class LoginListener implements Listener {
 
-    NetworkSyncPlugin plugin;
+    private NetworkSyncPlugin plugin;
 
     public LoginListener(NetworkSyncPlugin plugin) {
         this.plugin = plugin;
