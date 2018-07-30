@@ -14,7 +14,7 @@ public class NsCmdCommand extends Command {
     private NetworkSyncPlugin plugin;
 
     public NsCmdCommand(NetworkSyncPlugin plugin) {
-        super("nscommand", "networksync.command", "nscmd", "globalcmd", "globalcommand");
+        super("nscommand", "networksync.command", "nscmd");
         this.plugin = plugin;
         ProxyServer.getInstance().getPluginManager().registerCommand(plugin, this);
     }
